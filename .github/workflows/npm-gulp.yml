@@ -1,0 +1,56 @@
+name: NodeJS with Gulp
+
+on:tool.bar. news
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Build
+      run: |
+        npm install
+        gulp
+            - nama: Unggah Artefak Bangunan
+  penggunaan: tindakan/upload-artifact@v4.5.0
+  dengan:
+    # Nama artefak
+    nama: # opsional, default adalah artefak
+    # Pola file, direktori, atau wildcard yang menjelaskan apa yang akan diunggah
+    jalur:
+    # Perilaku yang diinginkan jika tidak ada berkas yang ditemukan menggunakan jalur yang disediakan.
+Pilihan yang tersedia:
+  peringatan: Keluarkan peringatan tetapi jangan gagalkan tindakannya
+  error: Gagal melakukan tindakan dengan pesan kesalahan
+  abaikan: Jangan keluarkan peringatan atau kesalahan apa pun, tindakannya tidak gagal
+
+    if-no-files-found: # opsional, defaultnya adalah peringatan
+    # Durasi setelah artefak akan kedaluwarsa dalam hari. 0 berarti menggunakan retensi default.
+Minimal 1 hari. Maksimal 90 hari kecuali diubah dari halaman pengaturan repositori.
+
+    hari retensi: # opsional
+    # Tingkat kompresi untuk Zlib yang akan diterapkan pada arsip artifak. Nilainya dapat berkisar dari 0 hingga 9: - 0: Tanpa kompresi - 1: Kecepatan terbaik - 6: Kompresi default (sama dengan GNU Gzip) - 9: Kompresi terbaik Tingkat yang lebih tinggi akan menghasilkan kompresi yang lebih baik, tetapi akan memakan waktu lebih lama untuk menyelesaikannya. Untuk file besar yang tidak mudah dikompresi, nilai 0 direkomendasikan untuk pengunggahan yang jauh lebih cepat.
+
+    tingkat kompresi: # opsional, defaultnya 6
+    # Jika benar, artefak dengan nama yang cocok akan dihapus sebelum artefak baru diunggah. Jika salah, tindakan akan gagal jika artefak untuk nama yang diberikan sudah ada. Tidak akan gagal jika artefak tidak ada.
+
+    menimpa: # opsional, defaultnya salah
+    # Jika benar, file tersembunyi akan disertakan dalam artefak. Jika salah, file tersembunyi akan dikecualikan dari artefak.
+
+    include-hidden-files: # opsional, defaultnya salah
+          
